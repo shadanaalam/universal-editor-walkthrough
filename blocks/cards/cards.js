@@ -2,7 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { loadJQuery } from '../../scripts/jquery-loader.js';
 
-export default function decorate(block) {
+export default async function decorate(block) {
 
    const $ = await loadJQuery();
   /* change to ul, li */
