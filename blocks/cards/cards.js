@@ -1,18 +1,10 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
-
-function loadJQuery(callback) {
-  if (window.jQuery) {
-    callback();
-  } else {
-    const script = document.createElement('script');
-    script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-    script.onload = () => callback();
-    document.head.appendChild(script);
-  }
-}
+import { loadJQuery } from '../../scripts/jquery-loader.js';
 
 export default function decorate(block) {
+
+   const $ = await loadJQuery();
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -33,13 +25,6 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  loadJQuery(() => {
-    console.log('jQuery loaded:', typeof $);
-    $(block).addClass('jquery-enhanced');
-
-    // Example: fade in all images
-    $(block).find('img').hide().fadeIn(500);
-  });
 
   $.ajax({
         url: "/etc/acs-commons/lists/report-parameter-components.infinity.json",
