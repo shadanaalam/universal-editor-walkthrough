@@ -33,6 +33,5 @@ export default function decorate(block) {
         }
     });
 
-  /etc/acs-commons/lists/report-parameter-components.infinity.json
   
 }
