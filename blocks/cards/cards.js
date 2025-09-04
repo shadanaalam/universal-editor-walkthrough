@@ -27,7 +27,7 @@ export default async function decorate(block) {
 
 
   $.ajax({
-        url: "/etc/acs-commons/lists/report-parameter-components.infinity.json",
+        url: "/content/ttnretail/us/en/sign-in.infinity.json",
         type: "GET",
         success: function (data) {
             console.log("Data "+ data);
