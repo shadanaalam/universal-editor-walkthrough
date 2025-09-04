@@ -21,4 +21,18 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
+
+  $.ajax({
+        url: "/etc/acs-commons/lists/report-parameter-components.infinity.json",
+        type: "GET",
+        success: function (data) {
+            console.log("Data "+ data);
+        },
+        error: function () {
+            console.warn("Could not fetch page properties at: " + pageEndpoint);
+        }
+    });
+
+  /etc/acs-commons/lists/report-parameter-components.infinity.json
+  
 }
