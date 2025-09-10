@@ -156,21 +156,6 @@
               }
             }
           }
-        },
-        {
-          "title": "Custom Block",
-          "id": "custom-block",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/custom-block/v1/custom-block",
-                "template": {
-                  "name": "Custom Block",
-                  "model": "custom-block"
-                }
-              }
-            }
-          }
         }
       ]
     }
