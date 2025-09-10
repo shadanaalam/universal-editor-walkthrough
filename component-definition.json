@@ -163,7 +163,7 @@
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/custom_block/v1/custom_block",
+                "resourceType": "core/franklin/components/custom-block/v1/custom-block",
                 "template": {
                   "name": "Custom Block",
                   "model": "custom-block"
