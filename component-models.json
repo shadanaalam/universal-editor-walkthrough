@@ -224,13 +224,6 @@
        "value": "First Name",
        "label": "First Name",
        "valueType": "string"
-     },
-     {
-       "component": "text",
-       "valueType": "string",
-       "name": "lastnmae",
-       "label": "Last Name",
-       "value": "Last Name"
      }
    ]
 }
