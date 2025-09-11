@@ -17,8 +17,15 @@ export async function getCountries() {
 
   // Fetch countries via AJAX
   $.ajax({
-    url: 'https://author-p42517-e1411479.adobeaemcloud.com/etc/acs-commons/lists/countries-list/jcr:content.infinity.json', // Replace with your actual endpoint
-    type: 'GET',
+  url: '/etc/acs-commons/lists/countries-list/jcr:content.infinity.json', // Your endpoint
+  type: 'GET',
+  beforeSend: function (xhr) {
+    // Set the Basic Auth header
+    const username = 'shadan.aalam@tothenew.com'; // Replace with your actual username
+    const password = 'Alamttn@123'; // Replace with your actual password
+    const base64Auth = btoa(username + ':' + password); // Encode to Base64
+    xhr.setRequestHeader('Authorization', 'Basic ' + base64Auth);
+  },
     success: function (response) {
       const list = response?.list;
       if (!list) {
