@@ -17,7 +17,7 @@ export async function getCountries() {
 
   // Fetch countries via AJAX
   $.ajax({
-    url: '/etc/acs-commons/lists/countries-list/jcr:content.infinity.json', // Replace with your actual endpoint
+    url: 'https://author-p42517-e1411479.adobeaemcloud.com/etc/acs-commons/lists/countries-list/jcr:content.infinity.json', // Replace with your actual endpoint
     type: 'GET',
     success: function (response) {
       const list = response?.list;
