@@ -1,4 +1,4 @@
-import { loadJQuery } from 'jquery-loader.js';
+import { loadJQuery } from '/jquery-loader.js';
 
 async function getCountries(){
 
