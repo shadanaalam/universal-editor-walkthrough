@@ -2,9 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { loadJQuery } from '../../scripts/jquery-loader.js';
 
-export default async function decorate(block) {
-
-   const $ = await loadJQuery();
+export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -24,22 +22,4 @@ export default async function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
-
-
-  $.ajax({
-        url: "/content/ttnretail/us/en/sign-in.infinity.json",
-        type: "GET",
-        success: function (data) {
-            console.log("Data "+ data);
-        },
-        error: function () {
-            console.warn("Could not fetch page properties at: " + pageEndpoint);
-        }
-    });
-
-
-
-------------------
-
-  
 }
