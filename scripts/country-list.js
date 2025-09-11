@@ -1,6 +1,6 @@
 import { loadJQuery } from './jquery-loader.js';
 
-async function getCountries(){
+export async function getCountries(){
 
   const $ = await loadJQuery();
 
