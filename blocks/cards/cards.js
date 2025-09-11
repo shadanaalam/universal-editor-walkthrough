@@ -1,6 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
-import { countries } from '../../scripts/country-list.js';
+import { getCountries } from '../../scripts/country-list.js';
 
 export default function decorate(block) {
   
@@ -23,4 +23,5 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);  
+  getCountries();
 }
