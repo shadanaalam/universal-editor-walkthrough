@@ -1,5 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
+import { countries } from '../../scripts/country-list.js';
 
 export default function decorate(block) {
   
