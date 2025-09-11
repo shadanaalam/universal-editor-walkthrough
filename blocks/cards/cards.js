@@ -37,5 +37,73 @@ export default async function decorate(block) {
         }
     });
 
+// Wait for the DOM to be ready
+document.addEventListener("DOMContentLoaded", () => {
+  // Create and insert a label
+  const label = document.createElement("label");
+  label.setAttribute("for", "country-select");
+  label.textContent = "Select a country: ";
+  document.body.appendChild(label);
+
+  // Create the select dropdown
+  const select = document.createElement("select");
+  select.id = "country-select";
+
+  // Add a default option
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Loading countries...";
+  select.appendChild(defaultOption);
+
+  // Add the select to the body
+  document.body.appendChild(select);
+
+  // Optional: Create an image element to display the selected flag
+  const flagImg = document.createElement("img");
+  flagImg.id = "flag";
+  flagImg.style.marginTop = "10px";
+  flagImg.style.height = "50px";
+  flagImg.alt = "Country Flag";
+  document.body.appendChild(flagImg);
+
+  // Fetch countries from the API
+  fetch("https://countriesnow.space/api/v0.1/countries/flag/images")
+    .then((res) => res.json())
+    .then((data) => {
+      // Clear loading option
+      select.innerHTML = "";
+
+      // Add default "select" option
+      const placeholderOption = document.createElement("option");
+      placeholderOption.value = "";
+      placeholderOption.textContent = "Select a country";
+      select.appendChild(placeholderOption);
+
+      // Populate the dropdown
+      data.data.forEach((country) => {
+        const option = document.createElement("option");
+        option.value = country.name;
+        option.textContent = country.name;
+        option.setAttribute("data-flag", country.flag); // Store flag URL
+        select.appendChild(option);
+      });
+    })
+    .catch((err) => {
+      console.error("Failed to fetch countries:", err);
+      select.innerHTML = "";
+      const errorOption = document.createElement("option");
+      errorOption.value = "";
+      errorOption.textContent = "Failed to load countries";
+      select.appendChild(errorOption);
+    });
+
+  // Event listener to show selected country's flag
+  select.addEventListener("change", () => {
+    const selectedOption = select.options[select.selectedIndex];
+    const flagUrl = selectedOption.getAttribute("data-flag");
+    flagImg.src = flagUrl || "";
+  });
+});
+
   
 }
