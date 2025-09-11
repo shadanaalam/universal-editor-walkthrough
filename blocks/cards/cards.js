@@ -78,46 +78,11 @@ export default async function decorate(block) {
     }
   });
 
-  // ----------------------
-  // COUNTRY DROPDOWN START
-  // ----------------------
 
-  // Container for the dropdown and flag
-  const container = document.createElement('div');
-  container.style.marginTop = '20px';
-
-  // Create and insert a label
-  const label = document.createElement("label");
-  label.setAttribute("for", "country-select");
-  label.textContent = "Select a country: ";
-  container.appendChild(label);
-
-  // Create the select dropdown
-  const select = document.createElement("select");
-  select.id = "country-select";
-
-  // Add a default option
-  const defaultOption = document.createElement("option");
-  defaultOption.value = "";
-  defaultOption.textContent = "Loading countries...";
-  select.appendChild(defaultOption);
-  container.appendChild(select);
-
-  // Image for the flag
-  const flagImg = document.createElement("img");
-  flagImg.id = "flag";
-  flagImg.style.marginTop = "10px";
-  flagImg.style.height = "50px";
-  flagImg.alt = "Country Flag";
-  container.appendChild(flagImg);
-
-  // Append the whole container to the block
-  block.appendChild(container);
-
-  // Fetch countries from the API
   try {
     const res = await fetch("https://countriesnow.space/api/v0.1/countries/flag/images");
     const json = await res.json();
+    console.log("Countries "+ json);
 
     select.innerHTML = ''; // Clear loading text
 
@@ -134,12 +99,7 @@ export default async function decorate(block) {
       select.appendChild(option);
     });
 
-    // Handle change to show flag
-    select.addEventListener("change", () => {
-      const selectedOption = select.options[select.selectedIndex];
-      const flagUrl = selectedOption.getAttribute("data-flag");
-      flagImg.src = flagUrl || "";
-    });
+    
 
   } catch (err) {
     console.error("Failed to fetch countries:", err);
@@ -149,10 +109,7 @@ export default async function decorate(block) {
     errorOption.textContent = "Failed to load countries";
     select.appendChild(errorOption);
   }
-
-  // --------------------
-  // COUNTRY DROPDOWN END
-  // --------------------
+------------------
 
   
 }
