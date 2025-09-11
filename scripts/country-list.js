@@ -1,5 +1,7 @@
 import { loadJQuery } from '../../scripts/jquery-loader.js';
 
+function getCountries(){
+
   const $ = await loadJQuery();
 
  $.ajax({
@@ -43,3 +45,4 @@ import { loadJQuery } from '../../scripts/jquery-loader.js';
       }));
     }
   });
+}
