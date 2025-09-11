@@ -3,6 +3,9 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 import { loadJQuery } from '../../scripts/jquery-loader.js';
 
 export default function decorate(block) {
+
+  const $ = await loadJQuery();
+  
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
