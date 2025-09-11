@@ -39,6 +39,7 @@ export default async function decorate(block) {
 
 // Wait for the DOM to be ready
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("Inside dom ready");
   // Create and insert a label
   const label = document.createElement("label");
   label.setAttribute("for", "country-select");
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((data) => {
       // Clear loading option
+      console.log("Country Data " + data);
       select.innerHTML = "";
 
       // Add default "select" option
