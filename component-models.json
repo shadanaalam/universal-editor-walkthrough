@@ -219,7 +219,7 @@
   "id": "custom-block",
   "fields": [
      {
-       "component": "text",
+       "component": "richtext",
        "name": "firstname",
        "value": "First Name",
        "label": "First Name",
